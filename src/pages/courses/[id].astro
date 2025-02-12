@@ -1,0 +1,32 @@
+---
+import { obtenerCursos } from "../../getApi.js";
+import CursoId from "../../components/CursoId.jsx";
+import Article from "../../components/Article";
+
+// Generar las rutas estáticas
+export async function getStaticPaths() {
+    const cursos = await obtenerCursos();
+    const paths = cursos.map((curso) => ({
+        params: { id: curso.id.toString() },
+    }));
+    return paths;
+}
+
+// Obtener el curso correspondiente al id de la ruta
+const { id } = Astro.params;
+const cursos = await obtenerCursos();
+const curso = cursos.find((curso) => curso.id.toString() === id);
+---
+
+<html>
+    <head>
+        <title>Mi página con Astro y React</title>
+    </head>
+    <body>
+        <nav class="bg-blue-600 text-white py-4 px-8 shadow-lg flex justify-between items-center">
+            <a href="/section/" class="text-2xl font-bold hover:text-gray-200 transition-all">VC</a>
+            <a href="/courses/misCursos" class="text-lg hover:text-gray-200 transition-all">Mis Cursos</a>
+        </nav>
+        <CursoId curso={curso} client:load />
+    </body>
+</html>
