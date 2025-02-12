@@ -154,52 +154,18 @@ function Menu() {
             </div>
 
             <div
-                className="h-[800px] w-full bg-black p-6 shadow-md relative"
+                className="h-[800px] w-full bg-black p-6 shadow-md relative sm:block md:hidden"
                 style={{
                     backgroundImage: 'url(/icFront.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             >
-                {/*<img
-                    className="absolute top-[-12%] left-[14%] transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-600px]"
-                    src="javaDuke.png"
-                    alt="Java Duke"
-                style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 5s ease-out',
-                }}
-                />*/}
-                <img
-                    className="absolute top-[50%] left-[14%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/html.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 5s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[30%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/js.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 5s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[50%] right-[5%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/css.jpg"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 5s ease-out',
-                }}*/
-                />
             </div>
+
+
             <div
-                className="h-[1300px] w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-10 shadow-lg relative text-white"
+                className="h-[800px] w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-10 shadow-lg relative text-white"
             >
                 <h1 className="text-5xl font-bold text-center mb-10 tracking-wide text-green-400">
                     Lenguajes de Programación para Backend y Bases de Datos
@@ -227,50 +193,50 @@ function Menu() {
                 </div>
 
                 <h2 className="text-4xl font-semibold text-center mt-12 text-yellow-400">Lenguajes de Backend</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                     {/* Node.js */}
-                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-green-400 text-center">Node.js</a>
+                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform flex flex-col items-center text-center">
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-green-400">Node.js</a>
                         <p className="text-md leading-7">
                             Plataforma basada en JavaScript para construir aplicaciones rápidas y escalables.
                         </p>
                     </div>
 
                     {/* Python */}
-                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-400 text-center">Python</a>
+                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform flex flex-col items-center text-center">
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-400">Python</a>
                         <p className="text-md leading-7">
                             Con frameworks como Django y Flask, facilita la creación de aplicaciones eficientes.
                         </p>
                     </div>
 
                     {/* Java */}
-                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-red-400 text-center">Java</a>
+                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform flex flex-col items-center text-center">
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-red-400">Java</a>
                         <p className="text-md leading-7">
                             Lenguaje seguro y escalable, ampliamente usado en entornos empresariales.
                         </p>
                     </div>
 
                     {/* PHP */}
-                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-purple-400 text-center">PHP</a>
+                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform flex flex-col items-center text-center">
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-purple-400">PHP</a>
                         <p className="text-md leading-7">
                             Popular en desarrollo web, especialmente con frameworks como Laravel.
                         </p>
                     </div>
 
                     {/* Ruby */}
-                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <h3 className="text-3xl font-semibold mb-4 text-pink-400 text-center">Ruby</h3>
+                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform flex flex-col items-center text-center">
+                        <h3 className="text-3xl font-semibold mb-4 text-pink-400">Ruby</h3>
                         <p className="text-md leading-7">
                             Lenguaje de sintaxis elegante, utilizado en Ruby on Rails para aplicaciones web.
                         </p>
                     </div>
 
                     {/* C# */}
-                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-500 text-center">C#</a>
+                    <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform flex flex-col items-center text-center">
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-500">C#</a>
                         <p className="text-md leading-7">
                             Potente lenguaje de Microsoft para aplicaciones web con ASP.NET.
                         </p>
@@ -278,51 +244,52 @@ function Menu() {
                 </div>
 
                 <h2 className="text-4xl font-semibold text-center mt-20 text-yellow-400">Bases de Datos</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                    {/* MySQL */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                    {/* Node.js */}
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section' className="text-3xl font-semibold mb-4 text-yellow-300 text-center">MySQL</a>
-                        <p className="text-md leading-7">
-                            Base de datos relacional popular basada en SQL, ideal para aplicaciones estructuradas.
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-green-400 text-center block">Node.js</a>
+                        <p className="text-md leading-7 text-center">
+                            Plataforma basada en JavaScript para construir aplicaciones rápidas y escalables.
                         </p>
                     </div>
 
-                    {/* PostgreSQL */}
+                    {/* Python */}
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-300 text-center">PostgreSQL</a>
-                        <p className="text-md leading-7">
-                            Base de datos avanzada con soporte para consultas complejas y extensiones.
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-400 text-center block">Python</a>
+                        <p className="text-md leading-7 text-center">
+                            Con frameworks como Django y Flask, facilita la creación de aplicaciones eficientes.
                         </p>
                     </div>
 
-                    {/* MongoDB */}
+                    {/* Java */}
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-green-300 text-center">MongoDB</a>
-                        <p className="text-md leading-7">
-                            Base de datos NoSQL basada en documentos JSON, ideal para aplicaciones escalables.
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-red-400 text-center block">Java</a>
+                        <p className="text-md leading-7 text-center">
+                            Lenguaje seguro y escalable, ampliamente usado en entornos empresariales.
                         </p>
                     </div>
 
-                    {/* Firebase */}
+                    {/* PHP */}
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-orange-300 text-center">Firebase</a>
-                        <p className="text-md leading-7">
-                            Base de datos en la nube de Google para aplicaciones en tiempo real.
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-purple-400 text-center block">PHP</a>
+                        <p className="text-md leading-7 text-center">
+                            Popular en desarrollo web, especialmente con frameworks como Laravel.
                         </p>
                     </div>
 
-                    {/* Oracle */}
+                    {/* Ruby */}
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a className="text-3xl font-semibold mb-4 text-red-500 text-center">Oracle</a>
-                        <p className="text-md leading-7">
-                            Base de datos robusta, utilizada en grandes empresas y sistemas financieros.
+                        <h3 className="text-3xl font-semibold mb-4 text-pink-400 text-center">Ruby</h3>
+                        <p className="text-md leading-7 text-center">
+                            Lenguaje de sintaxis elegante, utilizado en Ruby on Rails para aplicaciones web.
                         </p>
                     </div>
-                    {/* Kotlin */}
+
+                    {/* C# */}
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-                        <a href='/section/' className="text-3xl font-semibold mb-4 text-purple-400 text-center">Kotlin</a>
-                        <p className="text-md leading-7">
-                            Lenguaje moderno y conciso, interoperable con Java, ideal para desarrollo backend con frameworks como Ktor.
+                        <a href='/section/' className="text-3xl font-semibold mb-4 text-blue-500 text-center block">C#</a>
+                        <p className="text-md leading-7 text-center">
+                            Potente lenguaje de Microsoft para aplicaciones web con ASP.NET.
                         </p>
                     </div>
                 </div>
@@ -333,117 +300,8 @@ function Menu() {
                     </p>
                 </div>
             </div>
-            <div
-                className="h-[1200px] w-full bg-black p-6 shadow-md relative"
-                style={{
-                    backgroundImage: 'url(/icBack.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            >
-                <img
-                    className="absolute top-[50%] left-[7%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/py2.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[10%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/jav.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[10%] left-[5%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/php.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[50%] right-[5%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/ruby.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[10%] right-[3%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="/cc+.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[30%] right-[60%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="mysql.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[30%] right-[20%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="postgre.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[70%] right-[65%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="mongo.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[70%] right-[45%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="fbase.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[80%] right-[5%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="ora.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400s ease-out',
-                }}*/
-                />
-                <img
-                    className="absolute top-[60%] right-[20%] transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-300px]"
-                    src="kotlin.png"
-                    alt="Java Duke"
-                /*style={{
-                    transform: `rotate(${rotation}deg)`,
-                    transition: 'transform 400  s ease-out',
-                }}*/
-                />
-            </div>
-            <div
-                className="h-[1000px] w-full bg-black text-green-400 p-10 shadow-lg relative font-mono"
-            >
+
+            <div className="h-[1000px] mt-[1] w-full bg-black text-green-400 p-10 shadow-lg relative font-mono">
                 <a href='/section/' className="text-5xl font-bold text-center mb-10 tracking-wide text-red-600 animate-pulse">
                     Zona Hacker: Lenguajes y Habilidades
                 </a>
@@ -458,7 +316,7 @@ function Menu() {
                 <h2 className="text-4xl font-semibold text-center mt-12 text-green-500 underline decoration-red-600">
                     Lenguajes Clave
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
                     <div className="bg-gray-900 p-6 rounded-2xl shadow-md border border-green-500 hover:scale-105 transition-transform">
                         <a href='/section/' className="text-3xl font-semibold mb-4 text-red-400 text-center">Python</a>
                         <p>
@@ -484,7 +342,7 @@ function Menu() {
                 <h2 className="text-4xl font-semibold text-center mt-20 text-green-500 underline decoration-red-600">
                     Habilidades Clave
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
                     <div className="bg-gray-900 p-6 rounded-2xl shadow-md border border-green-500 hover:scale-105 transition-transform">
                         <a href='/section/' className="text-3xl font-semibold mb-4 text-orange-400 text-center">Pentesting</a>
                         <p>
@@ -519,7 +377,8 @@ function Menu() {
                     </p>
                 </div>
             </div>
-            <div className="relative h-[1300px] w-full bg-black p-6 shadow-md">
+
+            <div className="relative h-[400px] w-full bg-black p-6 shadow-md">
                 <div
                     className="absolute inset-0"
                     style={{
@@ -530,13 +389,6 @@ function Menu() {
                 />
                 {/* Capa oscura encima */}
                 <div className="absolute inset-0 bg-black opacity-90"></div>
-
-                <img
-                    className="absolute bottom-[10%] right-[20%] transform -translate-x-1/2 -translate-y-1/2 max-w-[270px] max-h-[200px]"
-                    src="bash.png"
-                    alt="Bash Icon"
-                    style={{ width: 'auto', height: 'auto', objectFit: 'contain' }}
-                />
             </div>
         </>
     );
