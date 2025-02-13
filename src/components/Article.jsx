@@ -105,12 +105,12 @@ function Article() {
                     <a href="all" className="text-2xl font-semibold hover:text-yellow-400 transition-all">All</a>
                 </div>
             </motion.div>*/}
-
-            <h1 className="text-white text-[10rem] font-extrabold text-center 
+            <h1 className="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-extrabold text-center 
     relative bg-clip-text text-transparent bg-gradient-to-r from-[#0D4B67] via-[#00A9FF] to-[#00A9FF] 
     drop-shadow-2xl hover:scale-110 hover:drop-shadow-4xl transition-all duration-500">
                 Desata tu potencial
             </h1>
+
 
             {/* CARRUSEL DE CARDS */}
             <div className="relative flex flex-col items-center">
