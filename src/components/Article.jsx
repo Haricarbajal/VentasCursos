@@ -6,12 +6,11 @@ function Article() {
     const logout = () => {
         localStorage.removeItem('usuario'); // Elimina el item con la key 'usuario' del localStorage
         console.log('Usuario eliminado del localStorage');
-        // Puedes redirigir a otra página o realizar más acciones aquí si es necesario
     };
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleMenu = () => setMenuOpen(!menuOpen);
+    //const toggleMenu = () => setMenuOpen(!menuOpen);
 
     const cards = [
         {
@@ -36,7 +35,7 @@ function Article() {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % cards.length);
-        }, 3000); // Cambia cada 3 segundos
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
@@ -65,13 +64,13 @@ function Article() {
                 <a href="/" className="text-5xl font-bold font-sans">VC</a>
                 <div className="flex items-center space-x-6">
                     <a href="/section/" className="text-3xl hover:text-yellow-400 transition-all font-sans">Home</a>
-                    <a href="#" className="text-3xl hover:text-yellow-400 transition-all font-sans">About</a>
+                    {/*<a href="#" className="text-3xl hover:text-yellow-400 transition-all font-sans">About</a>
                     <button
                         className="text-white text-5xl font-semibold transition-all duration-300 hover:text-yellow-400 font-sans"
                         onClick={toggleMenu}
                     >
                         ≣
-                    </button>
+                    </button>*/}
                     {usuarioAlmacenado ? (
                         <button onClick={logout}>Logout</button>
                     ) :
@@ -86,7 +85,7 @@ function Article() {
             </nav>
 
             {/* Menú lateral */}
-            <motion.div
+            {/*<motion.div
                 className="fixed top-0 right-0 w-[250px] h-full bg-black/70 text-white p-6 transition-transform duration-500"
                 initial={{ x: 300 }}
                 animate={{ x: menuOpen ? 0 : 300 }}
@@ -105,7 +104,7 @@ function Article() {
                     <a href="frameWorks" className="text-2xl font-semibold hover:text-yellow-400 transition-all">FrameWorks</a>
                     <a href="all" className="text-2xl font-semibold hover:text-yellow-400 transition-all">All</a>
                 </div>
-            </motion.div>
+            </motion.div>*/}
 
             <h1 className="text-white text-[10rem] font-extrabold text-center 
     relative bg-clip-text text-transparent bg-gradient-to-r from-[#0D4B67] via-[#00A9FF] to-[#00A9FF] 
@@ -140,7 +139,6 @@ function Article() {
                         ))}
                     </AnimatePresence>
                 </div>
-                {/* INDICADORES DE POSICIÓN CENTRADOS */}
                 <div className="flex space-x-4 mt-4">
                     {cards.map((_, i) => (
                         <button
@@ -154,8 +152,8 @@ function Article() {
                     className="mt-8 px-8 py-4 text-2xl font-semibold text-white bg-gradient-to-r from-[#00A9FF] to-[#0D4B67] rounded-full shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-l transition-all duration-300 ease-in-out transform"
                     onClick={() => {
                         window.scrollBy({
-                            top: 980, // Desplaza 200px hacia abajo
-                            behavior: 'smooth' // Desplazamiento suave
+                            top: 980,
+                            behavior: 'smooth'
                         });
                     }}
                 >
@@ -165,26 +163,20 @@ function Article() {
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
                     <div className="bg-white p-8 rounded-xl shadow-2xl text-center relative z-50 transform transition-all duration-300 ease-in-out hover:scale-105">
-                        {/* Imagen de perfil con borde y sombra */}
                         <img
                             src="/furPersona.jpg"
                             alt="Perfil"
                             className="w-24 h-24 mx-auto rounded-full border-4 border-white shadow-lg hover:shadow-xl transition-shadow duration-300"
                         />
 
-                        {/* Texto del correo con un poco más de estilo */}
                         <p className="mt-4 text-lg font-semibold text-gray-800">{usuarioAlmacenado.correo}</p>
 
-                        {/* Contenedor para los botones, uno encima del otro */}
                         <div className="flex flex-col space-y-4 mt-6">
-                            {/* Botón "Mis Cursos" con estilos modernos */}
                             <a href="/courses/misCursos">
                                 <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                     Mis Cursos
                                 </button>
                             </a>
-
-                            {/* Botón "Cerrar" con efectos hover y focus */}
                             <button
                                 className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                                 onClick={() => setIsModalOpen(false)}

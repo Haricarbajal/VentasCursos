@@ -13,7 +13,6 @@ const Register = () => {
                 password
             };
 
-            // Obtener la lista de usuarios actual
             const response = await fetch(`${URL}/usuarios.json`);
             const usuarioActual = await response.json() || [];
 
@@ -22,10 +21,8 @@ const Register = () => {
 
             if (correoExiste) {
                 alert('El correo electrónico ya está registrado.');
-                return; // Detener la ejecución si el correo ya existe
+                return;
             }
-
-            // Si el correo no existe, agregar el nuevo usuario
             const nuevoUsuario = [...usuarioActual, {
                 correo: user.email,
                 password: user.password
@@ -38,8 +35,6 @@ const Register = () => {
             });
 
             alert('Usuario registrado exitosamente.');
-
-            // Limpiar los campos después del registro
             setEmail("");
             setPassword("");
         } catch (error) {

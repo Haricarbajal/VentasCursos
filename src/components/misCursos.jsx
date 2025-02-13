@@ -7,12 +7,9 @@ function MisCursos() {
 
     const URL = 'https://ventascursos-f91c8-default-rtdb.firebaseio.com';
 
-    // Obtener los cursos desde el archivo JSON
-
     useEffect(() => {
         const obtenerCursos = async () => {
             try {
-                // Obtener el usuario desde localStorage
                 const usuario = JSON.parse(localStorage.getItem('usuario'));
                 if (!usuario || !usuario.correo) {
                     console.error('No hay usuario registrado.');
@@ -23,16 +20,13 @@ function MisCursos() {
                 // Reemplazar caracteres problemáticos en el correo
                 const correoUsuarioSeguro = correoUsuario.replace(/[.\#$\[\]]/g, "_");
 
-                // Obtener los cursos del usuario desde misCursos
                 const response = await fetch(`${URL}/misCursos.json`);
                 const data = await response.json();
-
-                // Verificar si existen cursos para el usuario
                 if (data && data[correoUsuarioSeguro]) {
-                    setCursos(data[correoUsuarioSeguro]); // Asignar los cursos del usuario
+                    setCursos(data[correoUsuarioSeguro]);
                 } else {
                     console.log('No hay cursos disponibles para este usuario.');
-                    setCursos([]); // Si no hay cursos, establecer un array vacío
+                    setCursos([]);
                 }
             } catch (error) {
                 console.error("Error al obtener los cursos:", error);
@@ -40,19 +34,19 @@ function MisCursos() {
         };
 
         obtenerCursos();
-    }, []); // El array vacío asegura que solo se ejecute una vez al montar el componente
+    }, []);
 
 
-    // Función para abrir el modal y seleccionar el curso
+    
     const handleShowContent = (curso) => {
         setCursoSeleccionado(curso);
-        setIsModalOpen(true); // Abre el modal
+        setIsModalOpen(true);
     };
 
-    // Función para cerrar el modal
+    
     const handleCloseModal = () => {
-        setIsModalOpen(false); // Cierra el modal
-        setCursoSeleccionado(null); // Resetear el curso seleccionado
+        setIsModalOpen(false);
+        setCursoSeleccionado(null);
     };
 
     return (

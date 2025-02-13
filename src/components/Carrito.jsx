@@ -4,7 +4,6 @@ function Carrito() {
     const [carrito, setCarrito] = useState([]);
     const URL = 'https://ventascursos-f91c8-default-rtdb.firebaseio.com';
 
-    // Obtener la lista del carrito desde Firebase
     useEffect(() => {
         const obtenerCarrito = async () => {
             try {
@@ -35,38 +34,32 @@ function Carrito() {
 
     const comprar = async () => {
         try {
-            // Obtener el usuario del localStorage
             const usuario = JSON.parse(localStorage.getItem('usuario'));
             if (!usuario || !usuario.correo) {
                 console.error('No hay usuario registrado.');
-                return; // Si no hay usuario registrado, no podemos continuar.
+                return;
             }
             const correoUsuario = usuario.correo;
 
             // Reemplazar caracteres problemáticos en el correo (por ejemplo, @ y .)
             const correoUsuarioSeguro = correoUsuario.replace(/[.\#$\[\]]/g, "_");
 
-            // Obtener la lista actual de misCursos
             const responseMisCursos = await fetch(`${URL}/misCursos.json`);
             const misCursosData = await responseMisCursos.json();
             let misCursos = misCursosData ? misCursosData : {};  // Asegurarse de que sea un objeto vacío si no existe
 
-            // Verificar si el usuario ya tiene una lista en misCursos
             if (!misCursos[correoUsuarioSeguro]) {
-                misCursos[correoUsuarioSeguro] = []; // Si no existe, inicializar como un array vacío
+                misCursos[correoUsuarioSeguro] = [];
             }
 
-            // Agregar los cursos del carrito a misCursos
             misCursos[correoUsuarioSeguro] = [...misCursos[correoUsuarioSeguro], ...carrito];
 
-            // Actualizar misCursos en la base de datos
             await fetch(`${URL}/misCursos.json`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(misCursos)
             });
 
-            // Eliminar el carrito después de la compra
             await fetch(`${URL}/carrito.json`, {
                 method: 'DELETE'
             });
@@ -84,14 +77,12 @@ function Carrito() {
 
     return (
         <div>
-            {/* Menú de navegación */}
             <nav className="bg-blue-600 text-white py-4 px-8 shadow-lg flex justify-between items-center">
                 <a href="/section/" className="text-2xl font-bold hover:text-gray-200 transition-all">VC</a>
                 <a href="/courses/misCursos" className="text-lg hover:text-gray-200 transition-all">Mis Cursos</a>
             </nav>
 
             <div className="max-w-7xl mx-auto p-8 grid grid-cols-3 gap-8">
-                {/* Lista de productos en el carrito */}
                 <div className="col-span-2">
                     <h1 className="text-3xl font-bold mb-6">Carrito</h1>
                     <div className="space-y-6">
@@ -114,7 +105,6 @@ function Carrito() {
                     </div>
                 </div>
 
-                {/* Barra lateral con total y botón de compra */}
                 <div className="bg-gray-100 p-6 rounded-lg shadow-md">
                     <h2 className="text-2xl font-bold mb-4">Resumen</h2>
                     <p className="text-lg">Total a pagar: <span className="font-bold">${precioTotal.toFixed(2)}</span></p>

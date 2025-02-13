@@ -24,21 +24,16 @@ function Menu() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
-            >
-                {/* Capa adicional para el blur */}
+                >
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
                         backgroundImage: 'url(/bgAzul.jpg)',
                         filter: 'blur(0px)',
-                        zIndex: 0,  // Colocamos la capa de fondo con el blur al fondo
+                        zIndex: 0,
                     }}
                 ></div>
                 <div className="absolute top-[3%] right-[0.02%] bg-[rgba(45,45,45,0.5)] h-[80%] w-[100%] rounded-lg border-2 border-white flex flex-col items-center px-4 shadow-lg backdrop-blur-md">
-                    {/* Menú superior */}
-
-
-                    {/* Presentación */}
                     <div className="absolute top-[30%] text-center text-white mt-16 max-w-3xl">
                         <h2 className="text-5xl font-bold font-sans leading-tight drop-shadow-lg animate-fade-in">
                             Bienvenido a <span className="text-yellow-400">VentaCursos</span>
@@ -379,7 +374,7 @@ function Menu() {
             </div>
 
             <div className="relative h-[400px] w-full bg-black p-6 shadow-md">
-                <div
+            <div
                     className="absolute inset-0"
                     style={{
                         backgroundImage: 'url(/hacker.jpeg)',

@@ -16,7 +16,7 @@ export default function CursoId({ curso }) {
 
             if (!response.ok) throw new Error('Error al actualizar los likes');
 
-            setLikes(newLikes); // Actualiza el estado local de likes
+            setLikes(newLikes);
         } catch (error) {
             console.error(`Error al actualizar los likes para el curso ${curso.id}:`, error);
         }
@@ -25,11 +25,11 @@ export default function CursoId({ curso }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleShowContent = () => {
-        setIsModalOpen(true); // Abre el modal
+        setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        setIsModalOpen(false); // Cierra el modal
+        setIsModalOpen(false);
     };
 
 

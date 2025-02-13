@@ -27,8 +27,6 @@ function Section() {
                     </button>
                 </div>
             </nav>
-
-            {/* Menú lateral */}
             <motion.div
                 className="fixed top-0 right-0 w-[250px] h-full bg-black/70 text-white p-6 transition-transform duration-500"
                 initial={{ x: 300 }}

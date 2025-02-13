@@ -10,7 +10,6 @@ function Cursos() {
     const [contadorCarrito, setContadorCarrito] = useState(0)
 
     const URL = 'https://ventascursos-f91c8-default-rtdb.firebaseio.com'
-    // Obtener los cursos desde Firebase
     useEffect(() => {
         const obtenerCursos = async () => {
             try {
@@ -27,7 +26,6 @@ function Cursos() {
         obtenerCursos();
     }, []);
 
-    // Función para filtrar los cursos según el término de búsqueda y la categoría seleccionada
     const filteredCursos = cursos.filter((curso) => {
         const coincideBusqueda =
             curso.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -41,26 +39,22 @@ function Cursos() {
 
     const agregarAlCarrito = async (curso) => {
         try {
-            // Obtener el usuario del localStorage
             const usuario = JSON.parse(localStorage.getItem('usuario'));
             if (!usuario || !usuario.correo) {
                 console.error('No hay usuario registrado.');
-                return; // Si no hay usuario registrado, no podemos continuar.
+                return;
             }
             const correoUsuario = usuario.correo;
 
             // Reemplazar caracteres problemáticos en el correo (por ejemplo, @ y .)
             const correoUsuarioSeguro = correoUsuario.replace(/[.\#$\[\]]/g, "_");
 
-            // Obtener los cursos del usuario desde misCursos.json
             const misCursosResponse = await fetch(`${URL}/misCursos.json`);
             const misCursosData = await misCursosResponse.json();
 
-            // Obtener el carrito actual del servidor
             const carritoResponse = await fetch(`${URL}/carrito.json`);
             const carritoActual = await carritoResponse.json() || [];
 
-            // Verificación en misCursos.json
             if (misCursosData && misCursosData[correoUsuarioSeguro]) {
                 const cursosUsuario = misCursosData[correoUsuarioSeguro];
                 const cursoEnMisCursos = cursosUsuario.some(cursoGuardado => cursoGuardado.id === curso.id);
@@ -71,7 +65,7 @@ function Cursos() {
                 }
             }
 
-            // Verificación en carrito.json
+        
             const cursoEnCarrito = carritoActual.some(cursoGuardado => cursoGuardado.id === curso.id);
 
             if (cursoEnCarrito) {
@@ -79,10 +73,8 @@ function Cursos() {
                 return;
             }
 
-            // Si no existe en ninguno, agregar al carrito
             console.log('Curso no encontrado en misCursos ni en el carrito. Agregando al carrito...');
 
-            // Agregar el curso al carrito
             const nuevoCarrito = [...carritoActual, curso];
 
             await fetch(`${URL}/carrito.json`, {
@@ -143,7 +135,6 @@ function Cursos() {
                     Cursos Disponibles
                 </h1>
 
-                {/* Lupa para la barra de búsqueda */}
                 <button
                     onClick={() => setSearchVisible(!searchVisible)}
                     className="text-gray-600 hover:text-gray-800 transition-all text-lg"
@@ -157,8 +148,6 @@ function Cursos() {
                 </a>
             </div>
 
-
-            {/* Botones de filtro (Frontend, Ciberseguridad, Backend) */}
             {filtrosVisible && (
                 <div className="flex justify-center space-x-4 mb-8">
                     <button
@@ -188,7 +177,6 @@ function Cursos() {
                 </div>
             )}
 
-            {/* Barra de búsqueda */}
             {searchVisible && (
                 <div className="flex justify-center mb-8">
                     <input
@@ -200,8 +188,6 @@ function Cursos() {
                     />
                 </div>
             )}
-
-            {/* Lista de cursos filtrados */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredCursos.map((curso) => (
                     <div
@@ -256,7 +242,6 @@ function Cursos() {
                             )
                             }
                             <p><strong>Likes:</strong> {curso.likes}</p>
-                            {/* Botón de Comprar */}
                             {usuarioAlmacenado ? (
                                 <button
                                     onClick={() => agregarAlCarrito(curso)}
