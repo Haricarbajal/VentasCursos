@@ -2,6 +2,22 @@ import { useState, useEffect } from "react";
 
 export default function CursoId({ curso }) {
     const [likes, setLikes] = useState(curso.likes || 0);
+    const [idiomaActual, setIdiomaActual] = useState("")
+    const [moneda, setMoneda] = useState("$")
+
+    useEffect(() => {
+        const monedaActual = localStorage.getItem("moneda");
+        if(monedaActual){
+            setMoneda(monedaActual)
+        }
+    })
+
+    useEffect(() => {
+        const idioma = localStorage.getItem("idioma");
+        if (idioma) {
+            setIdiomaActual(idioma);
+        }
+    }, []);
 
     const handleLike = async () => {
         try {
@@ -82,13 +98,13 @@ export default function CursoId({ curso }) {
                 <div className="bg-white shadow-lg rounded-lg overflow-hidden">
                     <img
                         src={curso.imagen}
-                        alt={curso.titulo}
+                        alt={curso.titulo[idiomaActual]}
                         className="w-full h-64 object-cover"
                     />
                     <div className="p-8">
                         <div className="flex justify-between items-center mb-4">
                             <h1 className="text-3xl font-bold text-gray-900">
-                                {curso.titulo}
+                                {curso.titulo[idiomaActual]}
                             </h1>
                             {usuarioAlmacenado ? (
                                 <button
@@ -106,30 +122,30 @@ export default function CursoId({ curso }) {
                                     <h1></h1>
                                 )
                             }
-                            <span className="ml-2 text-gray-600">Likes: {likes}</span>
+                            <span className="ml-2 text-gray-600">{idiomaActual == "es" ? "Me gutas" : "Likes"}: {likes}</span>
                         </div>
-                        <p className="text-gray-600 mb-6">{curso.body}</p>
+                        <p className="text-gray-600 mb-6">{curso.body[idiomaActual]}</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                             <div>
                                 <p className="text-gray-600">
-                                    <span className="font-semibold">Duración:</span> {curso.duracion}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Duración" : "Duration"}:</span> {curso.duracion}
                                 </p>
                                 <p className="text-gray-600">
-                                    <span className="font-semibold">Categoría:</span> {curso.categoria}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Categoría" : "Category"}:</span> {curso.categoria}
                                 </p>
                             </div>
                             <div>
                                 <p className="text-gray-600">
-                                    <span className="font-semibold">Precio:</span> ${curso.precio}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Precio" : "Price"}:</span>{moneda}{curso.precio}
                                 </p>
                                 <p className="text-gray-600">
-                                    <span className="font-semibold">Idiomas:</span> {curso.idiomas.join(", ")}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Idiomas" : "Languages"}:</span> {curso.idiomas.join(", ")}
                                 </p>
                             </div>
                         </div>
                         <div className="border-t border-gray-200 pt-6">
                             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                                Opiniones de los estudiantes
+                                {idiomaActual == "es" ? "Opiniones de los estudiantes" : "Studientes Opinions"}
                             </h2>
                             <ul className="space-y-4">
                                 {curso.opiniones.map((opinion, index) => (
@@ -150,15 +166,27 @@ export default function CursoId({ curso }) {
                                 ))}
                             </ul>
                         </div>
-                        {usuarioAlmacenado ? (
-                            <button onClick={agregarAlCarrito(curso)} className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all">Comprar</button>)
-                            :
-                            (
-                                <h1></h1>
-                            )}
+                        {usuarioAlmacenado && (
+                            <button
+                                onClick={() => agregarAlCarrito(curso)}
+                                className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all"
+                            >
+                                {idiomaActual === "es" ? "Comprar" : "Buy"}
+                            </button>
+                        )}
                     </div>
                     {usuarioAlmacenado ? (
-                        <button onClick={handleShowContent} className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all">Mostrar Contenido</button>) : (
+                        idiomaActual == "es" ? (
+                            <>
+                                <button onClick={handleShowContent} className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all">Mostrar Contenido</button>
+                            </>
+                        ) :
+                            (
+                                <>
+                                    <button onClick={handleShowContent} className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all">Show Content</button>
+                                </>
+                            )
+                    ) : (
                         <h1></h1>
                     )
                     }

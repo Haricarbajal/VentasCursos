@@ -11,7 +11,6 @@ const LoginAu = () => {
             const response = await fetch(`${URL}/usuarios.json`);
             const usuarios = await response.json() || [];
 
-            // Buscar el usuario por el correo electrónico
             const usuarioEncontrado = usuarios.find(usuario => usuario.correo === email);
 
             if (usuarioEncontrado && usuarioEncontrado.password === password) {

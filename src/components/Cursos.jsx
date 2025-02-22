@@ -1,4 +1,4 @@
-import { h1 } from "framer-motion/client";
+import { h1, u } from "framer-motion/client";
 import { useState, useEffect } from "react";
 
 function Cursos() {
@@ -8,6 +8,22 @@ function Cursos() {
     const [filtrosVisible, setFiltrosVisible] = useState(false); // Estado para mostrar/ocultar los botones de filtro
     const [categoriaFiltro, setCategoriaFiltro] = useState(""); // Estado para almacenar la categoría seleccionada
     const [contadorCarrito, setContadorCarrito] = useState(0)
+    const [idiomaActual, setIdiomaActual] = useState("")
+    const [moneda, setMoneda] = useState("$")
+
+    useEffect(() => {
+        const idioma = localStorage.getItem("idioma");
+        if (idioma) {
+            setIdiomaActual(idioma);
+        }
+    }, []);
+
+    useEffect(() => {
+        const monedaActual = localStorage.getItem("moneda");
+        if(monedaActual){
+            setMoneda(monedaActual)
+        }
+    })
 
     const URL = 'https://ventascursos-f91c8-default-rtdb.firebaseio.com'
     useEffect(() => {
@@ -28,7 +44,7 @@ function Cursos() {
 
     const filteredCursos = cursos.filter((curso) => {
         const coincideBusqueda =
-            curso.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            curso.titulo[idiomaActual].toLowerCase().includes(searchTerm.toLowerCase()) ||
             curso.categoria.toLowerCase().includes(searchTerm.toLowerCase()) ||
             curso.idiomas.join(", ").toLowerCase().includes(searchTerm.toLowerCase());
 
@@ -65,7 +81,7 @@ function Cursos() {
                 }
             }
 
-        
+
             const cursoEnCarrito = carritoActual.some(cursoGuardado => cursoGuardado.id === curso.id);
 
             if (cursoEnCarrito) {
@@ -83,7 +99,7 @@ function Cursos() {
                 body: JSON.stringify(nuevoCarrito)
             });
             console.log('Curso agregado al carrito correctamente.');
-            setContadorCarrito(prev => prev +1)
+            setContadorCarrito(prev => prev + 1)
         } catch (error) {
             console.error('Error al agregar al carrito:', error);
         }
@@ -119,22 +135,36 @@ function Cursos() {
             setUsuarioAlmacenado(JSON.parse(usuario));
         }
     }, []);
-
     return (
         <div className="max-w-7xl mx-auto p-8">
             {/* Título, botón de filtros y lupa */}
             <div className="flex items-center justify-center mb-10 space-x-8">
                 {/* Botón de filtros */}
-                <button
-                    onClick={() => setFiltrosVisible(!filtrosVisible)}
-                    className="text-gray-600 hover:text-gray-800 transition-all text-lg"
-                >
-                    Filtros
-                </button>
-                <h1 className="text-5xl font-bold text-gray-800 flex-1 text-center">
-                    Cursos Disponibles
-                </h1>
-
+                {idiomaActual === "es" ? (
+                    <>
+                        <button
+                            onClick={() => setFiltrosVisible(!filtrosVisible)}
+                            className="text-gray-600 hover:text-gray-800 transition-all text-lg"
+                        >
+                            Filtros
+                        </button>
+                        <h1 className="text-5xl font-bold text-gray-800 flex-1 text-center">
+                            Cursos Disponibles
+                        </h1>
+                    </>
+                ) : (
+                    <>
+                        <button
+                            onClick={() => setFiltrosVisible(!filtrosVisible)}
+                            className="text-gray-600 hover:text-gray-800 transition-all text-lg"
+                        >
+                            Filters
+                        </button>
+                        <h1 className="text-5xl font-bold text-gray-800 flex-1 text-center">
+                            Courses Available
+                        </h1>
+                    </>
+                )}
                 <button
                     onClick={() => setSearchVisible(!searchVisible)}
                     className="text-gray-600 hover:text-gray-800 transition-all text-lg"
@@ -150,30 +180,63 @@ function Cursos() {
 
             {filtrosVisible && (
                 <div className="flex justify-center space-x-4 mb-8">
-                    <button
-                        onClick={() => setCategoriaFiltro("Frontend")}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
-                    >
-                        Frontend
-                    </button>
-                    <button
-                        onClick={() => setCategoriaFiltro("Ciberseguridad")}
-                        className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all"
-                    >
-                        Ciberseguridad
-                    </button>
-                    <button
-                        onClick={() => setCategoriaFiltro("Backend")}
-                        className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all"
-                    >
-                        Backend
-                    </button>
-                    <button
-                        onClick={() => setCategoriaFiltro("")} // Limpiar filtro
-                        className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all"
-                    >
-                        Limpiar filtro
-                    </button>
+                    {idiomaActual == "es" ? (
+                        <>
+                            <button
+                                onClick={() => setCategoriaFiltro("Frontend")}
+                                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
+                            >
+                                Frontend
+                            </button>
+                            <button
+                                onClick={() => setCategoriaFiltro("Ciberseguridad")}
+                                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all"
+                            >
+                                Ciberseguridad
+                            </button>
+                            <button
+                                onClick={() => setCategoriaFiltro("Backend")}
+                                className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all"
+                            >
+                                Backend
+                            </button>
+                            <button
+                                onClick={() => setCategoriaFiltro("")} // Limpiar filtro
+                                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all"
+                            >
+                                Limpiar filtro
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <button
+                                onClick={() => setCategoriaFiltro("Frontend")}
+                                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
+                            >
+                                Frontend
+                            </button>
+                            <button
+                                onClick={() => setCategoriaFiltro("Ciberseguridad")}
+                                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all"
+                            >
+                                Cibersecurity
+                            </button>
+                            <button
+                                onClick={() => setCategoriaFiltro("Backend")}
+                                className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all"
+                            >
+                                Backend
+                            </button>
+                            <button
+                                onClick={() => setCategoriaFiltro("")} // Limpiar filtro
+                                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all"
+                            >
+                                Clean Filters
+                            </button>
+                        </>
+                    )
+                    }
+
                 </div>
             )}
 
@@ -196,63 +259,125 @@ function Cursos() {
                     >
                         <img
                             src={curso.imagen}
-                            alt={curso.titulo}
+                            alt={curso.titulo[idiomaActual]}
                             className="w-full h-48 object-cover"
                         />
                         <div className="p-6">
-                            <a href={`/courses/${curso.id}`} className="text-2xl font-semibold text-gray-800 mb-2">
-                                {curso.titulo}
-                            </a>
-                            <p className="text-gray-600 mb-2">
-                                <span className="font-semibold">Duración:</span> {curso.duracion}
-                            </p>
-                            <p className="text-gray-600 mb-2">
-                                <span className="font-semibold">Categoría:</span> {curso.categoria}
-                            </p>
-                            <p className="text-gray-600 mb-4">
-                                <span className="font-semibold">Precio:</span> ${curso.precio}
-                            </p>
-                            <p className="text-gray-600 mb-4">
-                                <span className="font-semibold">Idiomas:</span> {curso.idiomas.join(", ")}
-                            </p>
-                            <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                                Opiniones:
-                            </h3>
-                            <ul className="list-disc list-inside space-y-2">
-                                {curso.opiniones.map((opinion, index) => (
-                                    <li key={index} className="text-gray-600">
-                                        <span className="font-semibold">{opinion.usuario}:</span> {opinion.comentario}{" "}
-                                        <span className="font-bold">(Puntuación: {opinion.puntuacion})</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            {usuarioAlmacenado ? (
-                                <button
-                                    onClick={() => handleLike(curso.id, curso.likes)}
-                                >
-                                    <img
-                                        id="corazonImg"
-                                        src="/corazon.png"
-                                        alt="Corazón"
-                                        class="w-8 h-8 filter grayscale hover:grayscale-0 transition-all duration-300"
-                                    />
-                                </button>
+                            {idiomaActual == "es" ? (
+                                <>
+                                    <a href={`/courses/${curso.id}`} className="text-2xl font-semibold text-gray-800 mb-2">
+                                        {curso.titulo[idiomaActual]}
+                                    </a>
+                                    <p className="text-gray-600 mb-2">
+                                        <span className="font-semibold">Duración:</span> {curso.duracion}
+                                    </p>
+                                    <p className="text-gray-600 mb-2">
+                                        <span className="font-semibold">Categoría:</span> {curso.categoria}
+                                    </p>
+                                    <p className="text-gray-600 mb-4">
+                                        <span className="font-semibold">Precio:</span>{moneda}{curso.precio}
+                                    </p>
+                                    <p className="text-gray-600 mb-4">
+                                        <span className="font-semibold">Idiomas:</span> {curso.idiomas.join(", ")}
+                                    </p>
+                                    <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                                        Opiniones:
+                                    </h3>
+                                    <ul className="list-disc list-inside space-y-2">
+                                        {curso.opiniones.map((opinion, index) => (
+                                            <li key={index} className="text-gray-600">
+                                                <span className="font-semibold">{opinion.usuario}:</span> {opinion.comentario}{" "}
+                                                <span className="font-bold">(Puntuación: {opinion.puntuacion})</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    {usuarioAlmacenado ? (
+                                        <button
+                                            onClick={() => handleLike(curso.id, curso.likes)}
+                                        >
+                                            <img
+                                                id="corazonImg"
+                                                src="/corazon.png"
+                                                alt="Corazón"
+                                                class="w-8 h-8 filter grayscale hover:grayscale-0 transition-all duration-300"
+                                            />
+                                        </button>
+                                    ) : (
+                                        <h1></h1>
+                                    )
+                                    }
+                                    <p><strong>Likes:</strong> {curso.likes}</p>
+                                    {usuarioAlmacenado ? (
+                                        <button
+                                            onClick={() => agregarAlCarrito(curso)}
+                                            className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all"
+                                        >
+                                            Comprar
+                                        </button>
+                                    ) :
+                                        (
+                                            <h1></h1>
+                                        )
+                                    }
+                                </>
                             ) : (
-                                <h1></h1>
+                                <>
+                                    <a href={`/courses/${curso.id}`} className="text-2xl font-semibold text-gray-800 mb-2">
+                                        {curso.titulo[idiomaActual]}
+                                    </a>
+                                    <p className="text-gray-600 mb-2">
+                                        <span className="font-semibold">Duration:</span> {curso.duracion}
+                                    </p>
+                                    <p className="text-gray-600 mb-2">
+                                        <span className="font-semibold">Category:</span> {curso.categoria}
+                                    </p>
+                                    <p className="text-gray-600 mb-4">
+                                        <span className="font-semibold">Price:</span>{moneda}{curso.precio*1.05}
+                                    </p>
+                                    <p className="text-gray-600 mb-4">
+                                        <span className="font-semibold">Languages:</span> {curso.idiomas.join(", ")}
+                                    </p>
+                                    <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                                        Opinions:
+                                    </h3>
+                                    <ul className="list-disc list-inside space-y-2">
+                                        {curso.opiniones.map((opinion, index) => (
+                                            <li key={index} className="text-gray-600">
+                                                <span className="font-semibold">{opinion.usuario}:</span> {opinion.comentario}{" "}
+                                                <span className="font-bold">(Rating: {opinion.puntuacion})</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    {usuarioAlmacenado ? (
+                                        <button
+                                            onClick={() => handleLike(curso.id, curso.likes)}
+                                        >
+                                            <img
+                                                id="corazonImg"
+                                                src="/corazon.png"
+                                                alt="Corazón"
+                                                class="w-8 h-8 filter grayscale hover:grayscale-0 transition-all duration-300"
+                                            />
+                                        </button>
+                                    ) : (
+                                        <h1></h1>
+                                    )
+                                    }
+                                    <p><strong>Likes:</strong> {curso.likes}</p>
+                                    {usuarioAlmacenado ? (
+                                        <button
+                                            onClick={() => agregarAlCarrito(curso)}
+                                            className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all"
+                                        >
+                                            Buy
+                                        </button>
+                                    ) :
+                                        (
+                                            <h1></h1>
+                                        )
+                                    }
+                                </>
                             )
-                            }
-                            <p><strong>Likes:</strong> {curso.likes}</p>
-                            {usuarioAlmacenado ? (
-                                <button
-                                    onClick={() => agregarAlCarrito(curso)}
-                                    className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all"
-                                >
-                                    Comprar
-                                </button>
-                            ) :
-                                (
-                                    <h1></h1>
-                                )
                             }
                         </div>
                     </div>

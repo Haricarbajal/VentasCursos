@@ -4,6 +4,14 @@ function MisCursos() {
     const [cursos, setCursos] = useState([]); // Estado para almacenar los cursos
     const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar la apertura/cierre del modal
     const [cursoSeleccionado, setCursoSeleccionado] = useState(null); // Estado para almacenar el curso seleccionado
+    const [idiomaActual, setIdiomaActual] = useState("")
+
+    useEffect(() => {
+        const idioma = localStorage.getItem("idioma");
+        if (idioma) {
+            setIdiomaActual(idioma);
+        }
+    }, []);
 
     const URL = 'https://ventascursos-f91c8-default-rtdb.firebaseio.com';
 
@@ -16,8 +24,6 @@ function MisCursos() {
                     return;
                 }
                 const correoUsuario = usuario.correo;
-
-                // Reemplazar caracteres problemáticos en el correo
                 const correoUsuarioSeguro = correoUsuario.replace(/[.\#$\[\]]/g, "_");
 
                 const response = await fetch(`${URL}/misCursos.json`);
@@ -53,50 +59,50 @@ function MisCursos() {
         <div>
             <nav className="bg-blue-600 text-white py-4 px-8 shadow-lg flex justify-between items-center">
                 <a href="/section/" className="text-2xl font-bold hover:text-gray-200 transition-all">VC</a>
-                <a href="/courses/misCursos" className="text-lg hover:text-gray-200 transition-all">Mis Cursos</a>
+                <a href="/courses/misCursos" className="text-lg hover:text-gray-200 transition-all">{idiomaActual == "es" ? "Mis Cursos" : "My Courses"}</a>
             </nav>
             <div className="max-w-7xl mx-auto p-8">
                 <h1 className="text-4xl font-bold text-gray-800 text-center mb-8">
-                    Lista de Mis Cursos
+                    {idiomaActual == "es" ? "Lista de mis Cursos" : "List of my courses"}
                 </h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {cursos.map((curso) => (
                         <div key={curso.id} className="bg-white shadow-lg rounded-lg overflow-hidden transition transform hover:scale-105 hover:shadow-2xl">
-                            <img src={curso.imagen} alt={curso.titulo} className="w-full h-48 object-cover" />
+                            <img src={curso.imagen} alt={curso.titulo[idiomaActual]} className="w-full h-48 object-cover" />
                             <div className="p-6">
-                                <h2 className="text-2xl font-semibold text-gray-800 mb-2">{curso.titulo}</h2>
+                                <h2 className="text-2xl font-semibold text-gray-800 mb-2">{curso.titulo[idiomaActual]}</h2>
                                 <p className="text-gray-600 mb-2">
-                                    <span className="font-semibold">Duración:</span> {curso.duracion}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Duracion" : "Duration"}:</span> {curso.duracion}
                                 </p>
                                 <p className="text-gray-600 mb-2">
-                                    <span className="font-semibold">Categoría:</span> {curso.categoria}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Categoria" : "Category"}:</span> {curso.categoria}
                                 </p>
                                 <p className="text-gray-600 mb-4">
-                                    <span className="font-semibold">Precio:</span> ${curso.precio}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Precio" : "Price"}:</span> ${curso.precio}
                                 </p>
                                 <p className="text-gray-600 mb-4">
-                                    <span className="font-semibold">Idiomas:</span> {curso.idiomas.join(", ")}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Idioma" : "Laguage"}:</span> {curso.idiomas.join(", ")}
                                 </p>
                                 <p className="text-gray-600 mb-4">
-                                    <span className="font-semibold">Nivel:</span> {curso.nivel}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Nivel" : "Level"}:</span> {curso.nivel}
                                 </p>
                                 <p className="text-gray-600 mb-4">
-                                    <span className="font-semibold">Instructor:</span> {curso.Instructor}
+                                    <span className="font-semibold">{idiomaActual == "es" ? "Instructor" : "Intructuor"}:</span> {curso.Instructor}
                                 </p>
-                                <h3 className="text-xl font-semibold text-gray-700 mb-2">Temario:</h3>
+                                <h3 className="text-xl font-semibold text-gray-700 mb-2">{idiomaActual == "es" ? "Temario" : "Syllabus"}:</h3>
                                 <ul className="list-disc list-inside space-y-2 mb-4">
                                     {curso.Temario.map((tema, index) => (
                                         <li key={index} className="text-gray-600">{tema}</li>
                                     ))}
                                 </ul>
 
-                                <h3 className="text-xl font-semibold text-gray-700 mb-2">Opiniones:</h3>
+                                <h3 className="text-xl font-semibold text-gray-700 mb-2">{idiomaActual == "es" ? "Opiniones" : "Opinions"}:</h3>
                                 <ul className="list-disc list-inside space-y-2 mb-4">
                                     {curso.opiniones.map((opinion, index) => (
                                         <li key={index} className="text-gray-600">
                                             <span className="font-semibold">{opinion.usuario}:</span> {opinion.comentario}
-                                            <span className="font-bold">(Puntuación: {opinion.puntuacion})</span>
+                                            <span className="font-bold">({idiomaActual == "es" ? "Puntuacion" : "Rating"}: {opinion.puntuacion})</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -104,7 +110,7 @@ function MisCursos() {
                                     onClick={() => handleShowContent(curso)}
                                     className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all"
                                 >
-                                    Mostrar Contenido
+                                    {idiomaActual == "es" ? "Mostrar Contenido" : "Show Content"}
                                 </button>
                             </div>
                         </div>

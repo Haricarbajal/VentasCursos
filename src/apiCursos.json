@@ -1,0 +1,94 @@
+{
+    "cursos": [
+        {
+            "id": 1,
+            "likes": 0,
+            "titulo": {
+                "español": "Desarrollo Web con JS",
+                "ingles": "Web Development with JS",
+                "chino": "使用JS进行网页开发"
+            },
+            "imagen": "https://i.ytimg.com/vi/RqQ1d1qEWlE/maxresdefault.jpg",
+            "duracion": {
+                "español": "40 horas",
+                "ingles": "40 hours",
+                "chino": "40小时"
+            },
+            "categoria": "Frontend",
+            "precio": 120.99,
+            "video": "https://www.youtube.com/watch?v=8GTaO9XhA5M&pp=ygUVZGVzYXJyb2xsbyB3ZWIgY29uIGpz",
+            "idiomas": [
+                "Español",
+                "Inglés",
+                "Chino"
+            ],
+            "body": {
+                "español": "Te enseñaremos la magia detrás del HTML",
+                "ingles": "We will teach you the magic behind HTML",
+                "chino": "我们将教您HTML背后的魔法"
+            },
+            "opiniones": [
+                {
+                    "usuario": "JuanPerez",
+                    "comentario": {
+                        "español": "Excelente curso, muy bien explicado",
+                        "ingles": "Excellent course, very well explained",
+                        "chino": "优秀的课程，讲解得很好"
+                    },
+                    "puntuacion": 5
+                },
+                {
+                    "usuario": "MariaLopez",
+                    "comentario": {
+                        "español": "Me gustó mucho, pero podría tener más ejercicios",
+                        "ingles": "I really liked it, but it could have more exercises",
+                        "chino": "我真的很喜欢，但可以有更多的练习"
+                    },
+                    "puntuacion": 4
+                }
+            ],
+            "url": "https://www.youtube.com/embed/8GTaO9XhA5M",
+            "Temario": {
+                "español": [
+                    "Introducción a JavaScript",
+                    "Variables y Tipos de Datos",
+                    "Manipulación del DOM",
+                    "Eventos y Funciones",
+                    "AJAX y Fetch API",
+                    "Proyecto Final"
+                ],
+                "ingles": [
+                    "Introduction to JavaScript",
+                    "Variables and Data Types",
+                    "DOM Manipulation",
+                    "Events and Functions",
+                    "AJAX and Fetch API",
+                    "Final Project"
+                ],
+                "chino": [
+                    "JavaScript简介",
+                    "变量和数据类型",
+                    "DOM操作",
+                    "事件和函数",
+                    "AJAX 和 Fetch API",
+                    "最终项目"
+                ]
+            },
+            "Instructor": {
+                "español": "Juan Martínez",
+                "ingles": "Juan Martinez",
+                "chino": "胡安·马丁内斯"
+            },
+            "duracionCurso": {
+                "español": "40 horas",
+                "ingles": "40 hours",
+                "chino": "40小时"
+            },
+            "nivel": {
+                "español": "Intermedio",
+                "ingles": "Intermediate",
+                "chino": "中级"
+            }
+        }
+    ]
+}

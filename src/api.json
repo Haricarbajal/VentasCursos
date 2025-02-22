@@ -3,7 +3,10 @@
         {
             "id": 1,
             "likes": 0,
-            "titulo": "Desarrollo Web con Js",
+            "titulo": {
+                "es": "Desarrollo Web con Js",
+                "en": "Web Development with"
+            },
             "imagen": "https://i.ytimg.com/vi/RqQ1d1qEWlE/maxresdefault.jpg",
             "duracion": "40 horas",
             "categoria": "Frontend",
@@ -13,7 +16,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Te enseñaremos la magia detras del HTML",
+            "body": {
+                "es": "Te enseñaremos la magia detrás del HTML",
+                "en": "We will teach you the magic behind HTML"
+            },
             "opiniones": [
                 {
                     "usuario": "JuanPerez",
@@ -42,7 +48,10 @@
         {
             "id": 2,
             "likes": 0,
-            "titulo": "Ciberseguridad",
+            "titulo": {
+                "es": "Ciberseguridad",
+                "en": "Cybersecurity"
+            },
             "imagen": "https://cometelared.es/storage/2023/04/curso-ciberseguridad.jpg",
             "duracion": "50 horas",
             "categoria": "Ciberseguridad",
@@ -50,7 +59,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Haz tus primeros pasos en el mundo del hacking ético con nostros",
+            "body": {
+                "es": "Haz tus primeros pasos en el mundo del hacking ético con nosotros",
+                "en": "Take your first steps into the world of ethical hacking with us"
+            },
             "opiniones": [
                 {
                     "usuario": "CarlosGomez",
@@ -78,7 +90,10 @@
         {
             "id": 3,
             "likes": 0,
-            "titulo": "Hacking Ético",
+            "titulo": {
+                "es": "Hacking Ético",
+                "en": "Ethical Hacking"
+            },
             "imagen": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/ea75d653-9542-432e-ba8a-877b0e629b91/template_imagen_curso_2.jpg?t=1715684344",
             "duracion": "50 horas",
             "categoria": "Frontend",
@@ -86,7 +101,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "LISTO PARA HACER TU PRIMER EXPLOIT ?",
+            "body": {
+                "es": "¿LISTO PARA HACER TU PRIMER EXPLOIT?",
+                "en": "READY TO MAKE YOUR FIRST EXPLOIT?"
+            },
             "opiniones": [
                 {
                     "usuario": "CarlosGomez",
@@ -114,7 +132,10 @@
         {
             "id": 4,
             "likes": 0,
-            "titulo": "Html",
+            "titulo": {
+                "es": "Html",
+                "en": "Html"
+            },
             "imagen": "https://edteam-media.s3.amazonaws.com/courses/original/4fd4f7cb-51bb-4997-a9e9-fbf1fefe9b52.png",
             "duracion": "50 horas",
             "categoria": "Frontend",
@@ -122,7 +143,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Curso completo de html de Cero a Experto",
+            "body": {
+                "es": "Curso completo de html de Cero a Experto",
+                "en": "Complete html course from Zero to Expert"
+            },
             "opiniones": [
                 {
                     "usuario": "CarlosGomez",
@@ -150,7 +174,10 @@
         {
             "id": 5,
             "likes": 0,
-            "titulo": "Css Avanzado",
+            "titulo": {
+                "es": "Css Avanzado",
+                "en": "Advanced CSS"
+            },
             "imagen": "https://edteam-media.s3.amazonaws.com/courses/original/262e68b3-eea2-43f2-9e9a-febc106a8295.png",
             "duracion": "40 horas",
             "categoria": "Frontend",
@@ -159,7 +186,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Domina las técnicas avanzadas de CSS para crear diseños impactantes y responsivos.",
+            "body": {
+                "es": "Domina las técnicas avanzadas de CSS para crear diseños impactantes y responsivos.",
+                "en": "Master advanced CSS techniques to create stunning and responsive designs."
+            },
             "opiniones": [
                 {
                     "usuario": "PedroGarcia",
@@ -187,7 +217,10 @@
         {
             "id": 6,
             "likes": 0,
-            "titulo": "React",
+            "titulo": {
+                "es": "React",
+                "en": "React"
+            },
             "imagen": "data:image/png;base64,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",
             "duracion": "50 horas",
             "categoria": "Frontend",
@@ -225,7 +258,10 @@
         {
             "id": 7,
             "likes": 0,
-            "titulo": "Vue",
+            "titulo": {
+                "es": "Vue",
+                "en": "Vue"
+            },
             "imagen": "https://i.ytimg.com/vi/LAozf_wDejU/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDN9EMUHyfJ886JtJTfIPopUcrKCg",
             "duracion": "45 horas",
             "categoria": "Frontend",
@@ -234,7 +270,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Descubre la simplicidad y flexibilidad de Vue para el desarrollo web.",
+            "body": {
+                "es": "Descubre la simplicidad y flexibilidad de Vue para el desarrollo web.",
+                "en": "Discover the simplicity and flexibility of Vue for web development."
+            },
             "opiniones": [
                 {
                     "usuario": "CarlosLopez",
@@ -263,7 +302,10 @@
         {
             "id": 8,
             "likes": 0,
-            "titulo": "Angular",
+            "titulo": {
+                "es": "Angular",
+                "en": "Angular"
+            },
             "imagen": "https://escuela.it/storage/course_images/portada-curso-angular-avanzado-53.jpg",
             "duracion": "55 horas",
             "categoria": "Frontend",
@@ -272,7 +314,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende a desarrollar aplicaciones web robustas y escalables con Angular.",
+            "body": {
+                "es": "Aprende a desarrollar aplicaciones web robustas y escalables con Angular.",
+                "en": "Learn to develop robust and scalable web applications with Angular."
+            },
             "opiniones": [
                 {
                     "usuario": "JoseMartinez",
@@ -301,7 +346,10 @@
         {
             "id": 9,
             "likes": 0,
-            "titulo": "Astro",
+            "titulo": {
+                "es": "Astro",
+                "en": "Astro"
+            },
             "imagen": "https://i.ytimg.com/vi/sOXW0ZnJxbQ/maxresdefault.jpg",
             "duracion": "30 horas",
             "categoria": "Frontend",
@@ -310,7 +358,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Explora Astro, el framework moderno para crear sitios web rápidos y optimizados.",
+            "body": {
+                "es": "Explora Astro, el framework moderno para crear sitios web rápidos y optimizados.",
+                "en": "Explore Astro, the modern framework for creating fast and optimized websites."
+            },
             "opiniones": [
                 {
                     "usuario": "MarcosHernandez",
@@ -339,7 +390,10 @@
         {
             "id": 10,
             "likes": 0,
-            "titulo": "Node.js",
+            "titulo": {
+                "es": "Node.js",
+                "en": "Node.js"
+            },
             "imagen": "https://miro.medium.com/v2/resize:fit:1400/1*qwoA9FmZDrE5q--_9qqBCQ.jpeg",
             "duracion": "50 horas",
             "categoria": "Backend",
@@ -348,7 +402,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Construye aplicaciones de backend escalables y eficientes con Node.js.",
+            "body": {
+                "es": "Construye aplicaciones de backend escalables y eficientes con Node.js.",
+                "en": "Build scalable and efficient backend applications with Node.js."
+            },
             "opiniones": [
                 {
                     "usuario": "DiegoPerez",
@@ -377,7 +434,10 @@
         {
             "id": 11,
             "likes": 0,
-            "titulo": "Python",
+            "titulo": {
+                "es": "Python",
+                "en": "Python"
+            },
             "imagen": "https://i.ytimg.com/vi/chPhlsHoEPo/maxresdefault.jpg",
             "duracion": "60 horas",
             "categoria": "Backend",
@@ -386,7 +446,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende Python para el desarrollo backend y automatización de tareas.",
+            "body": {
+                "es": "Aprende Python para el desarrollo backend y automatización de tareas.",
+                "en": "Learn Python for backend development and task automation."
+            },
             "opiniones": [
                 {
                     "usuario": "LauraMartinez",
@@ -415,7 +478,10 @@
         {
             "id": 12,
             "likes": 0,
-            "titulo": "Java",
+            "titulo": {
+                "es": "Java",
+                "en": "Java"
+            },
             "imagen": "https://www.melit.es/wp-content/uploads/2024/01/curso-java-01.jpg",
             "duracion": "65 horas",
             "categoria": "Backend",
@@ -424,7 +490,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Domina Java para el desarrollo de aplicaciones empresariales robustas.",
+            "body": {
+                "es": "Domina Java para el desarrollo de aplicaciones empresariales robustas.",
+                "en": "Master Java for developing robust enterprise applications."
+            },
             "opiniones": [
                 {
                     "usuario": "MiguelAlvarez",
@@ -453,7 +522,10 @@
         {
             "id": 13,
             "likes": 0,
-            "titulo": "Php",
+            "titulo": {
+                "es": "Php",
+                "en": "Php"
+            },
             "imagen": "https://i.ytimg.com/vi/qUei-wOdbnw/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCWfCT8uS4VJC1FQ3dSKXxkI1reqA",
             "duracion": "45 horas",
             "categoria": "Backend",
@@ -462,7 +534,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende PHP para el desarrollo web y la creación de sistemas dinámicos.",
+            "body": {
+                "es": "Aprende PHP para el desarrollo web y la creación de sistemas dinámicos.",
+                "en": "Learn PHP for web development and creating dynamic systems."
+            },
             "opiniones": [
                 {
                     "usuario": "RicardoMorales",
@@ -491,7 +566,10 @@
         {
             "id": 14,
             "likes": 0,
-            "titulo": "Ruby",
+            "titulo": {
+                "es": "Ruby",
+                "en": "Ruby"
+            },
             "imagen": "https://edteam-media.s3.amazonaws.com/courses/big/440bf729-4f2b-49a6-a0c7-7cf65a8bd31b.png",
             "duracion": "40 horas",
             "categoria": "Backend",
@@ -500,7 +578,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Descubre Ruby y su framework Rails para crear aplicaciones web rápidamente.",
+            "body": {
+                "es": "Descubre Ruby y su framework Rails para crear aplicaciones web rápidamente.",
+                "en": "Discover Ruby and its Rails framework to quickly create web applications."
+            },
             "opiniones": [
                 {
                     "usuario": "JoseGarcia",
@@ -529,7 +610,10 @@
         {
             "id": 15,
             "likes": 0,
-            "titulo": "C#",
+            "titulo": {
+                "es": "C#",
+                "en": "C#"
+            },
             "imagen": "https://tecnobinaria.net/wp-content/uploads/2023/04/c-01-scaled-1.jpg?w=1400",
             "duracion": "55 horas",
             "categoria": "Backend",
@@ -538,7 +622,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende C# para desarrollar aplicaciones en .NET de manera eficiente.",
+            "body": {
+                "es": "Aprende C# para desarrollar aplicaciones en .NET de manera eficiente.",
+                "en": "Learn C# to develop .NET applications efficiently."
+            },
             "opiniones": [
                 {
                     "usuario": "AndresLopez",
@@ -567,7 +654,10 @@
         {
             "id": 16,
             "likes": 0,
-            "titulo": "Kotlin",
+            "titulo": {
+                "es": "Kotlin",
+                "en": "Kotlin"
+            },
             "imagen": "https://hackaprende.com/wp-content/uploads/2020/06/logo-curso.002.jpeg",
             "duracion": "50 horas",
             "categoria": "Backend",
@@ -576,7 +666,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Domina Kotlin para el desarrollo de aplicaciones modernas y eficientes.",
+            "body": {
+                "es": "Domina Kotlin para el desarrollo de aplicaciones modernas y eficientes.",
+                "en": "Master Kotlin for developing modern and efficient applications."
+            },
             "opiniones": [
                 {
                     "usuario": "SergioGomez",
@@ -605,7 +698,10 @@
         {
             "id": 17,
             "likes": 0,
-            "titulo": "Mysql",
+            "titulo": {
+                "es": "Mysql",
+                "en": "Mysql"
+            },
             "imagen": "https://edteam-media.s3.amazonaws.com/courses/original/3aa59acc-3472-4875-b9c6-216825be755b.png",
             "duracion": "35 horas",
             "categoria": "Bases de datos",
@@ -614,7 +710,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende a gestionar bases de datos con MySQL de forma eficaz.",
+            "body": {
+                "es": "Aprende a gestionar bases de datos con MySQL de forma eficaz.",
+                "en": "Learn to manage databases effectively with MySQL."
+            },
             "opiniones": [
                 {
                     "usuario": "FernandoLopez",
@@ -631,7 +730,10 @@
         {
             "id": 18,
             "likes": 0,
-            "titulo": "PostgreSql",
+            "titulo": {
+                "es": "PostgreSql",
+                "en": "PostgreSql"
+            },
             "imagen": "https://d3puay5pkxu9s4.cloudfront.net/curso/4307/800_imagen.jpg",
             "duracion": "40 horas",
             "categoria": "Bases de datos",
@@ -640,7 +742,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Domina PostgreSQL para la gestión de datos avanzados y aplicaciones escalables.",
+            "body": {
+                "es": "Domina PostgreSQL para la gestión de datos avanzados y aplicaciones escalables.",
+                "en": "Master PostgreSQL for advanced data management and scalable applications."
+            },
             "opiniones": [
                 {
                     "usuario": "RobertoSanchez",
@@ -657,7 +762,10 @@
         {
             "id": 19,
             "likes": 0,
-            "titulo": "MongoDB",
+            "titulo": {
+                "es": "MongoDB",
+                "en": "MongoDB"
+            },
             "imagen": "https://edteam-media.s3.amazonaws.com/courses/original/7f3ac3ee-a5d5-4ce0-be38-4521dc70b011.png",
             "duracion": "30 horas",
             "categoria": "Bases de datos",
@@ -666,7 +774,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende a utilizar MongoDB para manejar datos NoSQL de forma eficiente.",
+            "body": {
+                "es": "Aprende a utilizar MongoDB para manejar datos NoSQL de forma eficiente.",
+                "en": "Learn to use MongoDB to efficiently handle NoSQL data."
+            },
             "opiniones": [
                 {
                     "usuario": "DiegoMartinez",
@@ -683,7 +794,10 @@
         {
             "id": 20,
             "likes": 0,
-            "titulo": "FireBase",
+            "titulo": {
+                "es": "FireBase",
+                "en": "FireBase"
+            },
             "imagen": "https://escuela.it/storage/course_images_thumbnail/thumbnail-imagen-curso-firebase3-58.jpg",
             "duracion": "25 horas",
             "categoria": "Bases de datos",
@@ -692,7 +806,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Explora Firebase para el desarrollo de aplicaciones en tiempo real y escalables.",
+            "body": {
+                "es": "Explora Firebase para el desarrollo de aplicaciones en tiempo real y escalables.",
+                "en": "Explore Firebase for developing real-time and scalable applications."
+            },
             "opiniones": [
                 {
                     "usuario": "SergioLopez",
@@ -709,7 +826,10 @@
         {
             "id": 21,
             "likes": 0,
-            "titulo": "Oracle",
+            "titulo": {
+                "es": "Oracle",
+                "en": "Oracle"
+            },
             "imagen": "https://edteam-media.s3.amazonaws.com/courses/original/f9fb04aa-f55d-41f3-ab10-cae1cd73344e.png",
             "duracion": "50 horas",
             "categoria": "Bases de datos",
@@ -718,7 +838,10 @@
                 "Español",
                 "Inglés"
             ],
-            "body": "Aprende a gestionar y optimizar bases de datos Oracle para empresas.",
+            "body": {
+                "es": "Aprende a gestionar y optimizar bases de datos Oracle para empresas.",
+                "en": "Learn to manage and optimize Oracle databases for enterprises."
+            },
             "opiniones": [
                 {
                     "usuario": "ManuelGarcia",
@@ -735,7 +858,10 @@
         {
             "id": 22,
             "likes": 0,
-            "titulo": "Python para ciberseguridad",
+            "titulo": {
+                "es": "Python para ciberseguridad",
+                "en": "Python for Cybersecurity"
+            },
             "imagen": "https://img-c.udemycdn.com/course/750x422/5752046_5d44_21.jpg",
             "duracion": "40 horas",
             "categoria": "Ciberseguridad",
@@ -743,7 +869,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Aprende a utilizar Python para desarrollar herramientas y scripts de ciberseguridad.",
+            "body": {
+                "es": "Aprende a utilizar Python para desarrollar herramientas y scripts de ciberseguridad.",
+                "en": "Learn to use Python to develop cybersecurity tools and scripts."
+            },
             "opiniones": [
                 {
                     "usuario": "IvánTorres",
@@ -772,7 +901,10 @@
         {
             "id": 23,
             "likes": 0,
-            "titulo": "C",
+            "titulo": {
+                "es": "C",
+                "en": "C"
+            },
             "imagen": "https://i.ytimg.com/vi/VEw1jTYWydw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCQDt_FAoYgj3eGo6J9v-t3xd0qqQ",
             "duracion": "45 horas",
             "categoria": "Ciberseguridad",
@@ -780,7 +912,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Utiliza C para entender y desarrollar exploits en sistemas vulnerables.",
+            "body": {
+                "es": "Utiliza C para entender y desarrollar exploits en sistemas vulnerables.",
+                "en": "Use C to understand and develop exploits in vulnerable systems."
+            },
             "opiniones": [
                 {
                     "usuario": "OscarGutierrez",
@@ -809,7 +944,10 @@
         {
             "id": 24,
             "likes": 0,
-            "titulo": "Bash",
+            "titulo": {
+                "es": "Bash",
+                "en": "Bash"
+            },
             "imagen": "https://i.ytimg.com/vi/H4ayPYcZEfI/maxresdefault.jpg",
             "duracion": "30 horas",
             "categoria": "Ciberseguridad",
@@ -817,7 +955,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Aprende a utilizar Bash para la automatización de tareas y análisis de seguridad.",
+            "body": {
+                "es": "Aprende a utilizar Bash para la automatización de tareas y análisis de seguridad.",
+                "en": "Learn to use Bash for task automation and security analysis."
+            },
             "opiniones": [
                 {
                     "usuario": "MarinaSoto",
@@ -846,7 +987,10 @@
         {
             "id": 25,
             "likes": 0,
-            "titulo": "Presting",
+            "titulo": {
+                "es": "Pentesting",
+                "en": "Pentesting"
+            },
             "imagen": "https://i.ytimg.com/vi/T_HA_JqsZME/maxresdefault.jpg",
             "duracion": "50 horas",
             "categoria": "Ciberseguridad",
@@ -854,7 +998,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Domina las técnicas de pentesting y evaluación de vulnerabilidades.",
+            "body": {
+                "es": "Domina las técnicas de pentesting y evaluación de vulnerabilidades.",
+                "en": "Master pentesting techniques and vulnerability assessment."
+            },
             "opiniones": [
                 {
                     "usuario": "JavierVega",
@@ -883,7 +1030,10 @@
         {
             "id": 26,
             "likes": 0,
-            "titulo": "Ingenieria Inversa",
+            "titulo": {
+                "es": "Ingeniería Inversa",
+                "en": "Reverse Engineering"
+            },
             "imagen": "https://community.listopro.com/content/images/2024/04/-----LISTOPRO-BLOG----Ingenieri-a-Inversa_-Seguridad-de-la-informacio-n.png",
             "duracion": "55 horas",
             "categoria": "Ciberseguridad",
@@ -891,7 +1041,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Aprende los fundamentos de la ingeniería inversa para analizar software y detectar vulnerabilidades.",
+            "body": {
+                "es": "Aprende los fundamentos de la ingeniería inversa para analizar software y detectar vulnerabilidades.",
+                "en": "Learn the fundamentals of reverse engineering to analyze software and detect vulnerabilities."
+            },
             "opiniones": [
                 {
                     "usuario": "AlbertoMartinez",
@@ -920,7 +1073,10 @@
         {
             "id": 27,
             "likes": 0,
-            "titulo": "Criptografía",
+            "titulo": {
+                "es": "Criptografía",
+                "en": "Cryptography"
+            },
             "imagen": "https://media.licdn.com/dms/image/v2/D4E12AQFX2ZZe9h3GZg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1707319972172?e=2147483647&v=beta&t=ZV_s5fJVhiJOtrJSU-KcCL-ukVs78FNg9V7qtYkoim0",
             "duracion": "40 horas",
             "categoria": "Ciberseguridad",
@@ -928,7 +1084,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Explora los métodos y algoritmos de criptografía para proteger la información.",
+            "body": {
+                "es": "Explora los métodos y algoritmos de criptografía para proteger la información.",
+                "en": "Explore cryptographic methods and algorithms to protect information."
+            },
             "opiniones": [
                 {
                     "usuario": "DiegoHernandez",
@@ -957,7 +1116,10 @@
         {
             "id": 28,
             "likes": 0,
-            "titulo": "Kali linux",
+            "titulo": {
+                "es": "Kali Linux",
+                "en": "Kali Linux"
+            },
             "imagen": "https://blog.facialix.com/wp-content/uploads/2025/01/udemy-course-1736726791.937559.webp",
             "duracion": "35 horas",
             "categoria": "Ciberseguridad",
@@ -965,7 +1127,10 @@
             "idiomas": [
                 "Español"
             ],
-            "body": "Aprende a utilizar Kali Linux para pruebas de penetración y análisis de seguridad.",
+            "body": {
+                "es": "Aprende a utilizar Kali Linux para pruebas de penetración y análisis de seguridad.",
+                "en": "Learn to use Kali Linux for penetration testing and security analysis."
+            },
             "opiniones": [
                 {
                     "usuario": "FernandoGarcia",
@@ -990,6 +1155,6 @@
             "Instructor": "Javier Morales",
             "duracionCurso": "35 horas",
             "nivel": "Básico"
-        }   
+        }
     ]
 }
